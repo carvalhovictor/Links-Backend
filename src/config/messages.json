@@ -1,0 +1,15 @@
+{
+	"account.signup.email.exists": "This email is already used.",
+	"account.signup.success": "Successfully signed up.",
+	"account.signup.password_confirmation.any.required": "Password confirmation is required.",
+	"account.signup.password.string.empty": "Password is required.",
+	"account.signup.email.string.empty": "Email is required.",
+	"account.signup.email.string.email": "Not a valid email.",
+	"account.signup.password.string.pattern.base": "Password must be between 3 and 30 characters and include letters and numbers.",
+	"response.json.ok": "Successful request.",
+	"response.json.bad_request": "Bad request.",
+	"response.json.unauthorized": "Unauthorized.",
+	"response.json.not_found": "Not found.",
+	"response.json.server_error": "Server error."
+
+}
