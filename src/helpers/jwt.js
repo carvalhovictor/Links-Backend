@@ -23,4 +23,9 @@ const verifyRefreshJWT = token => {
 	return jwt.verify(token, refreshTokenPrivateKey);
 }
 
-module.exports = { generateJWT, generateRefreshJWT, verifyJWT, verifyRefreshJWT };
+const getTokenFromHeaders = headers => {
+	const token = headers["authorization"];
+	return token ? token.slice(7, token.length) : null; //pra tirar o Bearer 
+}
+
+module.exports = { generateJWT, generateRefreshJWT, verifyJWT, verifyRefreshJWT, getTokenFromHeaders };
