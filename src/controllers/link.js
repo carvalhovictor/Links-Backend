@@ -27,7 +27,7 @@ router.post("/", async (req, res) => {
 
 	const image = "https://google.com/image.jpg";
 
-	const link = await Link.create({ label, url, image, isSocial, accountId });
+	const link = await Link.create({ label, url, image, isSocial, accountId: 7 });
 
 	return res.jsonOK(link)
 });
