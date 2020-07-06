@@ -1,24 +1,24 @@
-const {verifyJWT, getTokenFromHeaders} = require("../helpers/jwt");
+const { verifyJWT, getTokenFromHeaders } = require("../helpers/jwt");
 
 const checkJWT = (req, res, next) => {
-	const { url:path } = req;
 
+	const { url: path } = req;
 	const excludedPaths = ["/auth/sign-in", "/auth/sign-up", "/auth/refresh"];
 	const isExcluded = !!excludedPaths.find((p) => p.startsWith(path));
 	if(isExcluded) return next();
 
 	const token = getTokenFromHeaders(req.headers);
-	token = token ? token.slice(7, token.length) : null; //pra tirar o Bearer 
-	if(!token) {return res.jsonUnauthorized(null, "Invalid token")};
+	if(!token) return res.jsonUnauthorized(null, "Invalid token");
 
-	try{
-		const decoded = verifyJWT(token); 
+	
+	try {
+		const decoded = verifyJWT(token);
 		req.accountId = decoded.id;
 		next();
-	}catch(error) {
+	} catch (error) {
 		return res.jsonUnauthorized(null, "Invalid token");
 	}
-	
+
 };
 
 module.exports = checkJWT;

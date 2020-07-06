@@ -35,6 +35,7 @@ router.post("/", async (req, res) => {
 router.put("/:id", async (req, res) => {
 	const { accountId, body } = req;
 	const { id } = req.params;
+	console.log(id);
 	const fields = ["label", "url", "image", "isSocial"];
 
 	const link = await Link.findOne({ where: { id, accountId }});

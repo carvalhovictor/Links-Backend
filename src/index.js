@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/auth", authController);
-app.use("/links", linkController);
+app.use("/link", linkController);
 
 app.get("/", (req, res) => {
 	return res.json("Api running");
